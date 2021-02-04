@@ -1,0 +1,97 @@
+<!-- <div *ngIf="auth.isAuthenticated()"> -->
+    <div>
+    <h1>{{title}}</h1>
+    <hr/>
+    <div class="row">
+        
+   <div class="card">
+    <div class="card-body">
+        <div class="row">
+        <div class="col-md-2">Search user by Name:</div>
+            <div class="col-md-4">
+                <input type="text"
+                       [(ngModel)]='listFilter'
+                />
+            </div>
+            <div class="col-md-6">
+                <h4>User :{{listFilter}} </h4>
+            </div>
+
+            </div>
+
+      <div class="row">     
+     <div class="col-md-2">Filter by role:</div>    
+    <div class="btn-group btn-group-sm" >
+      <button class="btn btn-default"  [class.active]="filterBy === 'all'"
+      (click)="filterBy='all'"
+      >All</button>
+       <button class="btn btn-default"  [class.active]="filterBy === 'admin'"
+      (click)="filterBy='admin'"
+      >Admin</button>
+       <button class="btn btn-default"  [class.active]="filterBy === 'accountant'"
+      (click)="filterBy='accountant'"
+      >Accountant</button>
+       <button class="btn btn-default"  [class.active]="filterBy === 'humanResource'"
+      (click)="filterBy='humanResource'"
+      >Human Resource</button>
+     </div>
+     </div> 
+
+       <div class="row">     
+     <div class="col-md-2">Filter by Position:</div>    
+    <div class="btn-group btn-group-sm" >
+      <button class="btn btn-default"  [class.active]="filterByPosition === 'all'"
+      (click)="filterByPosition='all'"
+      >All</button>
+       <button class="btn btn-default"  [class.active]="filterByPosition=== 'position1'"
+      (click)="filterByPosition='position1'"
+      >position1</button>
+       <button class="btn btn-default"  [class.active]="filterByPosition === 'Position2'"
+      (click)="filterByPosition='Position2'"
+      >Position2</button>
+       <button class="btn btn-default"  [class.active]="filterByPosition === 'position3'"
+      (click)="filterByPosition='position3'"
+      >position3</button>
+     </div>
+     </div> 
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Role</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>
+                            <div class="btn-group btn-group-sm">
+                            <button class="btn btn-default" 
+                            (click)="deleteUser()"
+                            >Delete</button>
+                            <button class="btn btn-default" 
+                            (click)="deleteUser()"
+                            >Disable</button>
+                            </div>
+                         </th>
+                    </tr>
+                </thead>
+                <tbody class="well" style="color: #bbb;">
+                    <tr *ngFor='let user of visibleUsers'>
+                       <td>{{user. employeeId}}</td>
+                       <td>{{user.name}}</td>
+                       <td>{{user.position}}</td>
+                       <td>{{user.role}}</td>
+                       <td>{{user.userEmail}}</td>
+                       <td>{{user.password}}</td>
+                       <td>  <input type="checkbox"  (change)="onCheck('userId')"/></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    </div>
+</div>

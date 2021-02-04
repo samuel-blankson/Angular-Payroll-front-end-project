@@ -1,0 +1,61 @@
+<div   class="col-md-12">
+  <h3>Update User</h3>
+<div class="col-md-6">
+  <form [formGroup]="updateUserForm" (ngSubmit)="updateUser(updateUserForm.value)" autocomplete="off">
+
+    <div class="form-group" [ngClass]="{'error': employeeId.invalid && employeeId.dirty}">
+      <label for="employeeId">EmployeeId:</label>
+      <em *ngIf="employeeId.invalid && employeeId.dirty">required</em>
+      <input formControlName="employeeId"   id="employeeId" type="text" class="form-control" placeholder="employeeId..." />
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': firstName.invalid && firstName.dirty}">
+      <label for="firstName">FirstName:</label>
+      <em *ngIf="firstName.invalid && firstName.dirty">required</em>
+      <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="firstName..." />
+    </div>
+
+      <div class="form-group" [ngClass]="{'error': lastName.invalid && lastName.dirty}">
+      <label for="lastName">LastName:</label>
+      <em *ngIf="lastName.invalid && lastName.dirty">required</em>
+      <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="lastName..." />
+    </div>
+
+     <div class="form-group" [ngClass]="{'error': userEmail.invalid && userEmail.dirty}">
+      <label for="userEmail">userEmail:</label>
+      <em *ngIf="userEmail.invalid && userEmail.dirty">required</em>
+      <input formControlName="userEmail" id="userEmail" type="text" class="form-control" placeholder="userEmail..." />
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': password.invalid && password.dirty}">
+      <label for="password">Password:</label>
+      <em *ngIf="password.invalid && password.dirty">required</em>
+      <input formControlName="password" id="password" type="text" class="form-control" placeholder="password..." />
+    </div>
+
+    <div class="form-group" [ngClass]="{'error': position.invalid && position.dirty}">
+      <label for="position">Position:</label>
+      <em *ngIf="position.invalid && position.dirty">required</em>
+      <select formControlName="position" class="form-control">
+        <option value="">select Position...</option>
+        <option value="CEO">CEO</option>
+        <option value="manager">Manager</option>
+        <option value="staff">Staff</option>
+        <option value="secuirity">Secuirity</option>
+      </select>
+    </div>
+    <div class="form-group" [ngClass]="{'error': role.invalid && role.dirty}">
+      <label for="role">Role:</label>
+      <em *ngIf="role.invalid && role.dirty">required</em>
+      <select formControlName="role" class="form-control">
+        <option value="">select Role...</option>
+        <option value="admin">Admin</option>
+        <option value="hr">Hr</option>
+        <option value="accountant">Accountant</option>
+        <option value="employee">Employee</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="updateUserForm.invalid" class="btn btn-primary">Update</button>
+    <button type="button"  (click)="cancel()" class="btn btn-default">Cancel</button>
+  </form>
+</div>

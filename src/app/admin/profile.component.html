@@ -1,0 +1,40 @@
+<div >
+<h1>update Your Profile</h1>
+<hr>
+    <div class="col-md-6">
+     <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
+    <div class="form-group" 
+      [ngClass]="{'error' : !validateFirstName()}">
+        <label for="firstName">First Name:</label>
+        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">required</em>
+        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">must Start with a letter</em>
+        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
+      </div>
+      <div class="form-group"
+       [ngClass]="{'error' : !validateLastName() }" >
+        <label for="lastName">Last Name:</label>
+        <em *ngIf="!validateLastName()  && profileForm.controls.lastName.errors.required ">required</em>
+        <em *ngIf="!validateLastName() && profileForm.controls.lastName.errors.pattern">must Start with a letter</em>
+        <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
+      </div>
+
+      <div class="form-group"
+       [ngClass]="{'error' : !validateUserEmail()}" >
+        <label for="userEmail">Email:</label>
+         <em *ngIf="!validateUserEmail()  && profileForm.controls.userEmail.errors.required ">required</em>
+        <em *ngIf="!validateUserEmail() && profileForm.controls.userEmail.errors.pattern">must Start with a letter</em>
+        <input formControlName="userEmail" id="userEmail" type="text" class="form-control" placeholder="Email..." />
+      </div>
+
+      <div class="form-group"
+       [ngClass]="{'error' : !validatePassword()}" >
+        <label for="password">Password:</label>
+        <em *ngIf="!validatePassword()">required</em>
+        <input formControlName="password" id="password" type="text" class="form-control" placeholder="Password..." />
+      </div>
+
+      <button type="submit"  class="btn btn-primary">Update</button>
+      <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+    </form>
+    </div>
+</div>    
